@@ -370,7 +370,6 @@ async def _stop(ctx):
 #VOICE CHANNEL MUSIC queue
 #this command is for music to be queued up if you use the ".play" multiple times while music is still playing
 queues = {}
-
 @client.command(pass_context = True, aliases = ["Queue", "queue", "Q", "q"])
 async def _queue(ctx, url: str):
     Queue_infile = os.path.isdir("./Queue")
@@ -409,38 +408,6 @@ async def _queue(ctx, url: str):
 '''END OF MUSIC AND VOICE CHANNEL RELATED COMMANDS'''
 
 '''START OF VOICE CHANNEL SOUNDBOARD COMMANDS'''
-
-
-#old soundboard command, this is a singular command and doesn't rely on groups and subcommands
-'''
-@client.command(pass_context = True, aliases = ["airhorn", "Airhorn"])
-async def _soundboard_airhorn(ctx):
-    vcvoice = discord.utils.get(client.voice_clients, guild = ctx.guild)
-    vcvoice.play(discord.FFmpegPCMAudio("soundboard/airhorn.mp3"))
-    vcvoice.source = discord.PCMVolumeTransformer(vcvoice.source)
-    vcvoice.source.value = 0.05
-'''
-
-#soundboard command format; copy for future use, switch out airhorn with whatever, 2nd one already has that done
-'''
-@_soundboard.command(aliases = ["airhorn", "Airhorn"])
-async def _soundboard_airhorn(ctx):
-    await ctx.send("Playing **airhorn** sound effect from soundboard")
-    print("\nPlayed airhorn sound effect\n")
-    vcvoice = discord.utils.get(client.voice_clients, guild = ctx.guild)
-    vcvoice.play(discord.FFmpegPCMAudio("soundboard/airhorn.mp3"))
-    vcvoice.source = discord.PCMVolumeTransformer(vcvoice.source)
-    vcvoice.source.value = 0.05
-
-@_soundboard.command(aliases = [""])
-async def _soundboard_(ctx):
-    await ctx.send("Playing **** sound effect from soundboard")
-    print("\nPlayed  sound effect\n")
-    vcvoice = discord.utils.get(client.voice_clients, guild = ctx.guild)
-    vcvoice.play(discord.FFmpegPCMAudio("soundboard/"))
-    vcvoice.source = discord.PCMVolumeTransformer(vcvoice.source)
-    vcvoice.source.value = 0.05
-'''
 
 
 #SOUNDBOARD COMMAND GROUP & HELP
@@ -855,43 +822,9 @@ async def captgetpinged(message):
 
 '''START OF EMOJI RESPONSES COMMANDS'''
 
-#SAMPLE ON MESSAGE CODE
-'''
-@client.listen("on_message")
-async def _(message):
-    if message.author.bot:
-        return
-    if "" in message.content:
-        await message.channel.send("")
-    if "" in message.content:
-        await message.channel.send("")
-'''
-
-#SAMPLE RESPONSE COMMAND CODE
-'''
-@client.command(aliases = ["", ""])
-async def _(ctx):
-    await ctx.send("")
-'''
-
-#FULL SET
-'''
-@client.listen("on_message")
-async def _(message):
-    if message.author.bot:
-        return
-    if "" in message.content:
-        await message.channel.send("")
-    if "" in message.content:
-        await message.channel.send("")
-
-@client.command(aliases = ["", ""])
-async def _(ctx):
-    await ctx.send("")
-'''
-
 
 #SO FAKE EMOJI
+'''
 @client.listen("on_message")
 async def _sofakeemoji(message):
     if message.author.bot:
@@ -900,6 +833,7 @@ async def _sofakeemoji(message):
         await message.channel.send("<:cv6_so_fake:812995927605903400>")
     if "Fake" in message.content:
         await message.channel.send("<:cv6_so_fake:812995927605903400>")
+'''
 
 @client.command(aliases = ["fake", "Fake"])
 async def _sofakeemojisend(ctx):
@@ -907,6 +841,7 @@ async def _sofakeemojisend(ctx):
 
 
 #DOUBT EMOJI
+'''
 @client.listen("on_message")
 async def _doubtemoji(message):
     if message.author.bot:
@@ -915,6 +850,7 @@ async def _doubtemoji(message):
         await message.channel.send("<:cv6_X_doubt:812995858781438022>")
     if "doubt" in message.content:
         await message.channel.send("<:cv6_X_doubt:812995858781438022>")
+'''
 
 @client.command(aliases = ["doubt", "Doubt"])
 async def _doubtemojisend(ctx):
@@ -945,6 +881,7 @@ async def _simppills(message):
         await message.channel.send("<:cv6_simp_pills:812995814904561695>")
     if "Simp" in message.content:
         await message.channel.send("<:cv6_simp_pills:812995814904561695>")
+
 
 @client.command(aliases = ["simp", "Simp"])
 async def _simppillsemojisend(ctx):
@@ -988,6 +925,7 @@ async def _timeremoji(message):
     if "Timer" in message.content:
         await message.channel.send("<a:cv6_60s_timer:812995903421022221>")
 
+
 @client.command(aliases = ["timer", "Timer"])
 async def _timeremojisend(ctx):
     await ctx.send("<a:cv6_60s_timer:812995903421022221>")
@@ -1002,6 +940,7 @@ async def _racistemoji(message):
         await message.channel.send("<:cv6_rascist:812995663817342986>")
     if "Racist" in message.content:
         await message.channel.send("<:cv6_rascist:812995663817342986>")
+
 
 @client.command(aliases = ["racist", "Racist"])
 async def _racistemojisend(ctx):
@@ -1035,6 +974,7 @@ async def _policeemoji(message):
         await message.channel.send("<a:cv6_police:812995767639212032>")
     if "Police" in message.content:
         await message.channel.send("<a:cv6_police:812995767639212032>")
+
 
 @client.command(aliases = ["police", "Police"])
 async def _policeemojisend(ctx):
