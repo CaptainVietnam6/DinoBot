@@ -48,7 +48,7 @@ async def on_ready():
     channel = client.get_channel(813513873419665470)
     await channel.send("DinoBot is online")
     #notifs for CV6's Playground server
-    channel = client.get_channel(816175323766980618)
+    channel = client.get_channel(816179144961818634)
     await channel.send("DinoBot is online")
     #notifs for CV6's Bots server
     channel = client.get_channel(812974446801059860)
